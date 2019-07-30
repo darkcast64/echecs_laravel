@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function sorties()
+    {
+        return $this->belongsToMany(Sortie::class,'sortie_user');
+    }
 }

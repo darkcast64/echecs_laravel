@@ -18,3 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/liste_sorties','ListeSortiesController@index');
+
+
+
+Route::get('/formulaire_sortie',function(){
+    return view('formulaire_sortie');
+});
+
+Route::post('/formulaire_sortie_soumis','SortieController@formulaire')->name('formulaire');
+
+Route::post('/inscription_sortie','SortieController@inscription_sortie')->name('inscription_sortie');

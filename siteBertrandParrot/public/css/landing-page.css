@@ -125,3 +125,14 @@ footer.footer {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
+ a {
+
+     color:white !important;
+ }
+
+ .sortie {
+     border:1px solid black;
+     box-shadow: 3px 3px 0px grey;
+
+
+ }
