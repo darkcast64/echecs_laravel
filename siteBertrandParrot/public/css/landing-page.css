@@ -43,8 +43,8 @@ header.masthead h1 {
 
 @media (min-width: 768px) {
   header.masthead {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
+    /*padding-top: 12rem;*/
+    /*padding-bottom: 12rem;*/
   }
   header.masthead h1 {
     font-size: 3rem;
@@ -130,9 +130,4 @@ footer.footer {
      color:white !important;
  }
 
- .sortie {
-     border:1px solid black;
-     box-shadow: 3px 3px 0px grey;
 
-
- }

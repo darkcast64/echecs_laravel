@@ -8,7 +8,7 @@ class Sortie extends Model
 {
     //
     protected $fillable = [
-        'nom', 'date', 'description','lieu'
+        'nom', 'date', 'description','lieu','auteur'
     ];
     public function users()
     {

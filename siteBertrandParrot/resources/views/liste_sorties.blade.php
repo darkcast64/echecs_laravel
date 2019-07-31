@@ -1,12 +1,40 @@
 @extends('layouts.app')
-
+<link href="{{asset('css/liste_sorties.css')}}" rel="stylesheet">
 <body>
 
-    <div class="container ml-1">
+    <div class="container-fluid ml-1">
         <div class="row">
-            <div class="col-4 mt-4 btn btn-primary ml-1"><a href="/formulaire_sortie">Proposer une sortie</a></div>
-            <div class="offset-2 mt-4 col-4">Bonjour {{ $user->name }}</div>
+            <div class="col-2 mt-4 btn btn-primary ml-1 d-flex align-items-center justify-content-center"><a href="/formulaire_sortie" style="color:white !important;">Proposer une sortie</a></div>
 
+            <div class="p-0 offset-5 col-2 mt-4 d-flex justify-content-center"><i class="fas fa-user fa-w-14 fa-5x" data-toggle="modal" data-target="#exampleModal"></i></div>
+            <div class="col-2 mt-4 d-flex justify-content-center"><a href="/" style="color:black !important;" ><i class="fas fa-home fa-w-18 fa-5x"></i></a></div>
+        </div>
+
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{ $user->name }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>E-mail : {{$user->email}}</p>
+                </div>
+                <div class="modal-body">
+                    <p>Date d'inscription : {{$user->created_at}}</p>
+                </div>
+                <div class="modal-body">
+                    <a href="{{ route('logout') }}" style="color:black !important;"><p>Deconnexion</p></a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
         </div>
     </div>
 
@@ -17,22 +45,27 @@
                 <div class="offset-6 col-6">{{ $sortie->nom }}</div>
             </div>
             <div class="row">
-                <div class="  col-3">{{ $sortie->date }}</div>
+                <div class="  col-3"><p>Date : {{ $sortie->date }}</p></div>
             </div>
             <div class="row">
                 <div class=" col-6">{{ $sortie->description }}</div>
             </div>
             <div class="row">
-                <div class=" col-6">{{ $sortie->lieu }}</div>
+                <div class=" col-6"><p>Lieu : {{ $sortie->lieu }}</p></div>
+            </div>
+            <div class="row">
+                <div class=" col-6"><p>Auteur : {{ $sortie->auteur }}</p></div>
             </div>
             <div class="row">
                 <form method="post" action="{{route('inscription_sortie') }}">
                     @csrf
                     <div class=" col-6"><button name="inscription_sortie" type="submit" value="{{ $sortie->id }}" >S'inscrire</button></div>
                 </form>
+                <div class="col-4"><a  href="/details/{{{$sortie->id}}}" style="color:  purple !important;">Details</a> </div>
             </div>
         </div>
         @endforeach
+</div>
 
 </body>
 </html>

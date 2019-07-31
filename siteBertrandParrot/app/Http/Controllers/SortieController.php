@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Sortie;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,7 +20,8 @@ class SortieController extends Controller
         $sortie->nom=$request->nom;
         $sortie->date=$request->date;
         $sortie->description=$request->description;
-        $sortie->auteur=$user->id;
+        $sortie->lieu=$request->lieu;
+        $sortie->auteur=$user->name;
         $sortie->save();
 
         return view('welcome');
@@ -31,8 +33,27 @@ class SortieController extends Controller
         $user=auth()->user();
         $user->sorties()->attach($id_sortie);
         $sorties = DB::table('sorties')->get();
-        $user = auth()->user();
+
 
         return view('liste_sorties',['sorties'=>$sorties,'user'=>$user]);
+    }
+
+    public function details($id){
+
+        $users=DB::table('sortie_user')->join('users','user_id','=','users.id')->select('name','id')->where('sortie_id',$id)->get();
+//       dd($users);
+//        $sortie = DB::table('sorties')->where('id',$id)->get();
+//        dd($sortie);
+        $sorties=Sortie::all();
+        $sortie=$sorties->find($id);
+        return view('details',['users'=>$users,'sortie'=>$sortie]);
+    }
+
+    public function profil($id){
+
+        $users=User::all();
+        $user=$users->find($id);
+
+        return view('profil',['user'=>$user]);
     }
 }

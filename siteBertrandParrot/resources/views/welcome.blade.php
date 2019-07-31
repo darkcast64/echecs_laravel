@@ -1,12 +1,14 @@
 @extends('layouts.app')
-
+<link href="{{asset('css/landing-page.css')}}" rel="stylesheet">
 <body>
 
 <!-- Navigation -->
 <nav class="navbar navbar-light bg-light static-top">
-    <div class="container">
-
-        <a class="btn btn-primary offset-5" href="{{ route('register') }}">Inscription</a>
+    <div class="container-fluid">
+        <div class="row col-12">
+            <a class="btn btn-primary offset-2 col-2" href="{{ route('register') }}">Inscription</a>
+            <a class="btn btn-danger offset-2 col-2" href="{{ route('logout') }}">se deconnecter</a>
+        </div>
     </div>
 </nav>
 
@@ -21,10 +23,8 @@
             <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
                 <form action="{{route('login')}}">
                     <div class="form-row">
-                        <div class="col-12 col-md-9 mb-2 mb-md-0">
-                            <input type="email" class="form-control form-control-lg" placeholder="Entrer votre email">
-                        </div>
-                        <div class="col-12 col-md-3">
+
+                        <div class="offset-4 col-9 col-md-3">
                             <button type="submit" class="btn btn-block btn-lg btn-primary">Connexion!</button>
                             <a href="/liste_sorties">lien de dev</a>
                         </div>

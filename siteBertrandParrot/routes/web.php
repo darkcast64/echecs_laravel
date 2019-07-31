@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/liste_sorties','ListeSortiesController@index');
+Route::get('/liste_sorties','ListeSortiesController@index')->name('liste_sorties');
 
 
 
@@ -30,3 +30,9 @@ Route::get('/formulaire_sortie',function(){
 Route::post('/formulaire_sortie_soumis','SortieController@formulaire')->name('formulaire');
 
 Route::post('/inscription_sortie','SortieController@inscription_sortie')->name('inscription_sortie');
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+Route::get('/details/{id}','SortieController@details');
+
+Route::get('/profil/{id}','SortieController@profil');
