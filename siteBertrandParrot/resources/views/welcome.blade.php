@@ -8,6 +8,7 @@
         <div class="row col-12">
             <a class="btn btn-primary offset-2 col-2" href="{{ route('register') }}">Inscription</a>
             <a class="btn btn-danger offset-2 col-2" href="{{ route('logout') }}">se deconnecter</a>
+
         </div>
     </div>
 </nav>

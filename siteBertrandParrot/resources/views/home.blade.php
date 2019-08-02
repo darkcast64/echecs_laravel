@@ -14,10 +14,12 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Vous êtes connecté et vous allez être redirigé
                 </div>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+<script> setTimeout(function(){window.location="http://localhost:8000/liste_sorties"}, 5000); </script>

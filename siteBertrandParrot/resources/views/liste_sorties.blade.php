@@ -8,6 +8,9 @@
 
             <div class="p-0 offset-5 col-2 mt-4 d-flex justify-content-center"><i class="fas fa-user fa-w-14 fa-5x" data-toggle="modal" data-target="#exampleModal"></i></div>
             <div class="col-2 mt-4 d-flex justify-content-center"><a href="/" style="color:black !important;" ><i class="fas fa-home fa-w-18 fa-5x"></i></a></div>
+            @if(Auth::user()->hasRole('admin'))
+                <a href="/admin" style="color:black !important;">Admin</a>
+            @endif
         </div>
 
     </div>

@@ -10,7 +10,7 @@ class ListeSortiesController extends Controller
     //
     public function index()
     {
-        $sorties = DB::table('sorties')->get();
+        $sorties = DB::table('sorties')->orderBy('created_at','desc')->get();
         $user = auth()->user();
 
         return view('liste_sorties', ['sorties' => $sorties,'user'=>$user]);

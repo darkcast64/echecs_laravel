@@ -36,3 +36,13 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('/details/{id}','SortieController@details');
 
 Route::get('/profil/{id}','SortieController@profil');
+
+Route::group(['middleware'=>['auth']],function(){
+
+    Route::get('/nopermission','AdminController@nopermission')->name('nopersmission');
+
+    Route::group(['middleware'=>['admin']],function(){
+        Route::get('/admin','AdminController@index')->name('admin');
+});
+});
+Route::get('/remove_user/{id}','AdminController@remove_user')->name('remove_user');
