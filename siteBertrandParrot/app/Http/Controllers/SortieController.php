@@ -33,8 +33,8 @@ class SortieController extends Controller
         $id_sortie=$request->inscription_sortie;
         $user=auth()->user();
         $user->sorties()->attach($id_sortie);
-//        $sorties = DB::table('sorties')->get();
 
+        $sorties = DB::table('sorties')->orderBy('created_at','desc')->get();
 
         return view('liste_sorties',['sorties'=>$sorties,'user'=>$user]);
     }

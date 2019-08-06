@@ -1,5 +1,6 @@
-body {
-    background-color: #6cb2eb !important;
+body{
+    background: url("../img/accueil.jpg") no-repeat  ;
+    background-size: cover;
 }
 
 .sortie {

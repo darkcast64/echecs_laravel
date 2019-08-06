@@ -11,7 +11,7 @@ class AdminController extends Controller
 {
     //
     public function index(){
-
+//<----- liste des utilisateurs et des sorties injectées dans la vue admin_liste_users--------->
         $users=User::all();
         $sorties=Sortie::all();
         return view ('admin_liste_users',['users'=>$users,'sorties'=>$sorties]);

@@ -4,7 +4,7 @@
 
 
 
-<div class="container sortie mt-2 col-6 ">
+<div class="container sortie mt-2 col-10 col-md-6 ">
     <div class="row">
         <div class="offset-6 col-6">{{ $sortie->nom }}</div>
     </div>

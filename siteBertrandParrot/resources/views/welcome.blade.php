@@ -5,9 +5,9 @@
 <!-- Navigation -->
 <nav class="navbar navbar-light bg-light static-top">
     <div class="container-fluid">
-        <div class="row col-12">
-            <a class="btn btn-primary offset-2 col-2" href="{{ route('register') }}">Inscription</a>
-            <a class="btn btn-danger offset-2 col-2" href="{{ route('logout') }}">se deconnecter</a>
+        <div class="row col-md-12 ">
+            <div class="offset-md-2 col-5 col-md m-0 m-md-2"><a class="btn btn-primary " href="{{ route('register') }}">Inscription</a></div>
+            <div class="offset-md-2  col-5 col-md m-0 m-md-2 pl-5"><a class="btn btn-danger" href="{{ route('logout') }}">se deconnecter</a></div>
 
         </div>
     </div>
@@ -25,7 +25,7 @@
                 <form action="{{route('login')}}">
                     <div class="form-row">
 
-                        <div class="offset-4 col-9 col-md-3">
+                        <div class="offset-md-4 offset-2 col-9 col-md-3">
                             <button type="submit" class="btn btn-block btn-lg btn-primary">Connexion!</button>
                             <a href="/liste_sorties">lien de dev</a>
                         </div>

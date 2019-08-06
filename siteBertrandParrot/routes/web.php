@@ -41,6 +41,8 @@ Route::group(['middleware'=>['auth']],function(){
 
     Route::get('/nopermission','AdminController@nopermission')->name('nopersmission');
 
+//    <---------Appel du middleware admin pour vérifier si l'on a bien le role admin-------------->
+
     Route::group(['middleware'=>['admin']],function(){
         Route::get('/admin','AdminController@index')->name('admin');
 });
