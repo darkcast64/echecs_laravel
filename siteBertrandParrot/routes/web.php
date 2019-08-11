@@ -48,3 +48,7 @@ Route::group(['middleware'=>['auth']],function(){
 });
 });
 Route::get('/remove_user/{id}','AdminController@remove_user')->name('remove_user');
+
+Route::get('/message/{id}','SortieController@message')->name('message');
+
+Route::post('/envoi_message/{id}','SortieController@envoi_message');

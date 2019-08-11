@@ -63,6 +63,7 @@ class Kernel extends HttpKernel
 
 //        <------- Enregistrement du middleware sus le nom admin ---------->
         'admin'=> \App\Http\Middleware\CheckAdmin::class,
+
     ];
 
     /**

@@ -22,7 +22,7 @@
     </div>
 <label>Utilisateurs inscrits</label><ul>
 @foreach($users as $user)
-            <li><p>{{$user->name}}<a href="/profil/{{{$user->id}}}">Voir profil</a></p></li>
+            <li><p>{{$user->name}}<a href="/profil/{{{$user->id}}}">Voir profil</a><a href="/message/{{$user->id}}">Envoyer message</a></p></li>
 @endforeach
 </ul>
 </div>
