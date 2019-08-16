@@ -28,6 +28,6 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-6"><a href="{{route('liste_sorties')}}">Retour</a></div>
+        <a href="{{route('liste_sorties')}}"><div class=" btn btn-primary  justify-content-center">Retour</div></a>
     </div>
 </div>

@@ -2,12 +2,12 @@
 <link href="{{asset('css/liste_sorties.css')}}" rel="stylesheet">
 <body>
 
-    <div class="container-fluid ml-1">
-        <div class="row">
-            <div class="col-md-2 col-4 mt-4 btn btn-primary ml-1 d-flex align-items-center justify-content-center"><a href="/formulaire_sortie" style="color:white !important;">Proposer une sortie</a></div>
+    <div class="container mt-2 col-10 col-md-8 ">
+        <div class="row justify-content-center">
+            <a href="/formulaire_sortie" style="color:white !important;"><div class="col-md-8 col-4 mt-4 btn btn-primary ml-1 d-flex align-items-center justify-content-center">Proposer une sortie</div></a>
 
-            <div class="ml-3 p-0 offset-5 col-2 mt-4 d-flex justify-content-center"><i class="fas fa-user fa-w-14 fa-5x" data-toggle="modal" data-target="#exampleModal"></i></div>
-            <div class="ml-5 col-2 mt-4 d-flex justify-content-center"><a href="/" style="color:black !important;" ><i class="fas fa-home fa-w-18 fa-5x"></i></a></div>
+            <div class="ml-5 p-0 offset-5 col-2 mt-4 d-flex justify-content-center"><i class="fas fa-user fa-w-14 fa-5x" data-toggle="modal" data-target="#exampleModal"></i></div>
+            <div class="ml-5 pl-3 col-2 mt-4 d-flex justify-content-center"><a href="/" style="color:black !important;" ><i class="fas fa-home fa-w-18 fa-5x"></i></a></div>
             @if($user->hasRole('admin'))
                 <a href="/admin" style="color:black !important;">Admin</a>
             @endif
