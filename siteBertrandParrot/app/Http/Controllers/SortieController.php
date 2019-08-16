@@ -78,9 +78,18 @@ class SortieController extends Controller
             $user = auth()->user();
             $message->auteur=$user->name;
             $message->message=$request->message;
+//            le destinateur du message est l'user dont l'id a transité
             $message->user_id=$id;
             $message->save();
 
             return view ('envoi_message');
+    }
+    public function lire_message(){
+//        on récupère l'utilisateur connecté'
+        $user = auth()->user();
+//        on récupère le message et l'auteur destiné à l'utilisateur connecté
+        $messages=DB::table('messages')->select('message','auteur')->where('user_id','=',$user->id)->get();
+
+        return view('lire_message',['messages'=>$messages]);
     }
 }

@@ -31,6 +31,9 @@
                     <p>Date d'inscription : {{$user->created_at}}</p>
                 </div>
                 <div class="modal-body">
+                    <p><a href="/liste_messages">Messages</a></p>
+                </div>
+                <div class="modal-body">
                     <a href="{{ route('logout') }}" style="color:black !important;"><p>Deconnexion</p></a>
                 </div>
                 <div class="modal-footer">

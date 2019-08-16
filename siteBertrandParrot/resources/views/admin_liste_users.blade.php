@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 
+
 <div class="container">
-    <div class="row">
+    <div class="row card-header">
         <p>Liste des utilisateurs inscrits sur le site</p>
         <ul>
             @foreach($users as $user)

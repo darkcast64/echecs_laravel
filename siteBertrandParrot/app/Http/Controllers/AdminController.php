@@ -28,7 +28,8 @@ class AdminController extends Controller
 
         DB::table('users')->where('id','=',$id)->delete();
         $users=User::all();
-        return view ('admin_liste_users',['users'=>$users]);
+        $sorties=Sortie::all();
+        return view ('admin_liste_users',['users'=>$users,'sorties'=>$sorties]);
     }
 }
 
