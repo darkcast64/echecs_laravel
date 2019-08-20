@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/liste_sorties','ListeSortiesController@index')->name('liste_sorties');
+
 
 
 
@@ -39,6 +39,8 @@ Route::get('/profil/{id}','SortieController@profil');
 
 Route::group(['middleware'=>['auth']],function(){
 
+    Route::get('/liste_sorties','ListeSortiesController@index')->name('liste_sorties');
+
     Route::get('/nopermission','AdminController@nopermission')->name('nopersmission');
 
 //    <---------Appel du middleware admin pour vérifier si l'on a bien le role admin-------------->
@@ -54,3 +56,8 @@ Route::get('/message/{id}','SortieController@message')->name('message');
 Route::post('/envoi_message/{id}','SortieController@envoi_message');
 
 Route::get('/liste_messages','SortieController@lire_message');
+
+Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::post('/profile/update', 'ProfileController@updateProfile')->name('profile.update');
+
+Route::get('/map','MapController@index')->name('map');

@@ -35,23 +35,32 @@ class SortieController extends Controller
     {
         $id_sortie = $request->inscription_sortie;
         $user = auth()->user();
+//        je récupère les lignes dans la bdd ou la sortie est déja liée à l'utilisateur'
+        $user_sortie=DB::table('sortie_user')->join('users','user_id','=','users.id')->where('sortie_id',$id_sortie)->where('user_id','=',$user->id)->count();
+//        si l'utilisateur est déja lié à la sortie'
+        if($user_sortie>=1){
+
+            return view ('deja_inscrit');
+        }
+        else{
         $user->sorties()->attach($id_sortie);
 
         $sorties = DB::table('sorties')->orderBy('created_at', 'desc')->get();
 
         return view('liste_sorties', ['sorties' => $sorties, 'user' => $user]);
-    }
+    }}
 
     public function details($id)
     {
-
-        $users = DB::table('sortie_user')->join('users', 'user_id', '=', 'users.id')->select('name', 'id')->where('sortie_id', $id)->get();
+//je récupère tous les utilisateurs inscrits à la sortie
+        $users = DB::table('sortie_user')->join('users', 'user_id', '=', 'users.id')->select('name','profile_image', 'id')->where('sortie_id', $id)->get();
 //       dd($users);
 //        $sortie = DB::table('sorties')->where('id',$id)->get();
 //        dd($sortie);
         $sorties = Sortie::all();
         $sortie = $sorties->find($id);
-        return view('details', ['users' => $users, 'sortie' => $sortie]);
+        $count=DB::table('sortie_user')->where('sortie_id',$id)->count();
+        return view('details', ['users' => $users, 'sortie' => $sortie,'count'=>$count]);
     }
 
     public function profil($id)

@@ -22,9 +22,14 @@
     </div>
 <label>Utilisateurs inscrits</label><ul>
 @foreach($users as $user)
-            <li><p>{{$user->name}}<a href="/profil/{{{$user->id}}}">Voir profil</a><a href="/message/{{$user->id}}">Envoyer message</a></p></li>
+    <li><p>
+    @if ($user->profile_image)
+            <img src="{{$user->profile_image}}" style="width: 20px; height: 20px; border-radius: 50%;">
+            @endif
+            {{$user->name}}<a href="/profil/{{{$user->id}}}">Voir profil</a><a href="/message/{{$user->id}}">Envoyer message</a></p></li>
 @endforeach
-</ul>
+    <li><p>Nombres d'inscrits : {{$count}}</p></li>
+    </ul>
 </div>
 <div class="container">
     <div class="row">
