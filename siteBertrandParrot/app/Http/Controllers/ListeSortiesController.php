@@ -11,9 +11,11 @@ class ListeSortiesController extends Controller
     //
     public function index()
     {
+//        Accés aus données dans la table sorties
         $sorties = DB::table('sorties')->orderBy('created_at','desc')->get();
+//         Accés à l'utilisateur authentifié'
         $user = Auth::user();
-//dd($user);
+//        Injection des données dans la vue
         return view('liste_sorties', ['sorties' => $sorties,'user'=>$user]);
     }
 }

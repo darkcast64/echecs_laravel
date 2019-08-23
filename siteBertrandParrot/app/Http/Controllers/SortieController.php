@@ -14,17 +14,25 @@ class SortieController extends Controller
     public function formulaire(Request $request)
     {
 
-
+//        Récuperation de l'utilisateur connecté'
         $user = auth()->user();
-
+//
+//
+//        Création d'un nouvel objet Sortie'
         $sortie = new Sortie;
-
+//
+//
+//        Récupération des données écrites dans les inputs du formulaire
         $sortie->nom = $request->nom;
         $sortie->date = $request->date;
         $sortie->description = $request->description;
         $sortie->lieu = $request->lieu;
         $sortie->auteur = $user->name;
+
+//        Enregistrement dans la BDD
         $sortie->save();
+
+
         $sorties = DB::table('sorties')->orderBy('created_at', 'desc')->get();
 
         return view('liste_sorties', ['user' => $user, 'sorties' => $sorties]);
@@ -100,5 +108,29 @@ class SortieController extends Controller
         $messages=DB::table('messages')->select('message','auteur')->where('user_id','=',$user->id)->get();
 
         return view('lire_message',['messages'=>$messages]);
+    }
+
+    public function edit_profil($id)
+
+    {
+        $users = User::all();
+        $user = $users->find($id);
+
+        return view('formulaire_edit_profil',['user'=>$user]);
+    }
+    public function formulaire_edit_profil_soumis($id,Request $request)
+    {
+        $users = User::all();
+        $user = $users->find($id);
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->description=$request->description;
+        $user->centres_interets=$request->centres_interets;
+        $user->save();
+
+        $sorties = Sortie::all();
+
+        return view('liste_sorties',['user'=>$user,'sorties'=>$sorties]);
+
     }
 }

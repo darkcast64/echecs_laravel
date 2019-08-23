@@ -38,7 +38,24 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
+                            <div class="col-md-6">
+                                <textarea id="description"  class="form-control @error('name') is-invalid @enderror" name="description"></textarea>
+
+                                {{--@error('name')--}}
+                                {{--<span class="invalid-feedback" role="alert">--}}
+                                        {{--<strong>{{ $message }}</strong>--}}
+                                    {{--</span>--}}
+                                {{--@enderror--}}
+                            </div>
+                            <div class="col-md-6">
+                                <textarea id="centre_interets"  class="form-control @error('name') is-invalid @enderror" name="centre_interets"></textarea>
+
+
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Sortie;
 use App\Traits\UploadTrait;
 use App\User;
 use Illuminate\Http\Request;
@@ -53,9 +54,10 @@ class ProfileController extends Controller
         }
         // Persist user record to database
         $user->save();
-        dd($user);
+
+        $sorties = Sortie::all();
 //
 //         Return user back and show a flash message
-        return view('liste_sorties',['user'=>$user]);
+        return view('liste_sorties',['user'=>$user,'sorties'=>$sorties]);
     }
 }

@@ -32,7 +32,11 @@
     </div>
 
 </div>
-<!-- Modal -->
+
+
+<!--------------------------------- Modal ------------------------------------------------------------->
+
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -49,12 +53,21 @@
             <div class="modal-body">
                 <p>Date d'inscription : {{$user->created_at}}</p>
             </div>
+            <div class="modal-body">
+                <p>Description : {{$user->description}}</p>
+            </div>
+            <div class="modal-body">
+                <p>Centre d'intérêts : {{$user->centres_interets}}</p>
+            </div>
 
             <div class="modal-body">
                 <p><a href="/liste_messages">Messages</a></p>
             </div>
             <div class="modal-body">
                 <p><a href="{{ route('profile') }}">Uploader une image</a></p>
+            </div>
+            <div class="modal-body">
+                <p><a href="/edit_profil/{{$user->id}}">Editer le profil</a></p>
             </div>
             <div class="modal-body">
                 <a href="{{ route('logout') }}" style="color:black !important;"><p>Deconnexion</p></a>
@@ -93,6 +106,7 @@
                 </div>
             </form>
             <div class="col-4"><a href="/details/{{{$sortie->id}}}" style="color:  purple !important;">Details</a></div>
+            <div class="col-4"><a href="/map" style="color:  purple !important;">voir sur la carte</a></div>
         </div>
     </div>
     @endforeach

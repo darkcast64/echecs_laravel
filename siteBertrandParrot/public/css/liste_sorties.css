@@ -1,6 +1,6 @@
 body {
     background-color: #6cb2eb !important;
-    background: url("../img/accueil.jpg") no-repeat;
+    background: url("../img/accueil.jpg") no-repeat fixed;
     background-size: cover;
 
 }

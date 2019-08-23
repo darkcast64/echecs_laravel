@@ -22,4 +22,4 @@
 </div>
 @endsection
 
-<script> setTimeout(function(){window.location="http://localhost:8000/liste_sorties"}, 5000); </script>
+<script> setTimeout(function(){window.location="http://sitelaravel/liste_sorties"}, 5000); </script>
