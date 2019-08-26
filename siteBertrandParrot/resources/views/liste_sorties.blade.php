@@ -106,7 +106,7 @@
                 </div>
             </form>
             <div class="col-4"><a href="/details/{{{$sortie->id}}}" style="color:  purple !important;">Details</a></div>
-            <div class="col-4"><a href="/map" style="color:  purple !important;">voir sur la carte</a></div>
+            <div class="col-4"><a href="/map/{{{$sortie->id}}}" style="color:  purple !important;">voir sur la carte</a></div>
         </div>
     </div>
     @endforeach

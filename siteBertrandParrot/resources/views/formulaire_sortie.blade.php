@@ -16,6 +16,10 @@
         <label for="exampleFormControlInput1">Lieu</label>
         <input type="text" class="form-control" id="exampleFormControlInput1"name="lieu">
     </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Code postal</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1"name="codepostal" required>
+    </div>
 
 
     <div class="form-group">

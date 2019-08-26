@@ -60,8 +60,8 @@ Route::get('/liste_messages','SortieController@lire_message');
 Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::post('/profile/update', 'ProfileController@updateProfile')->name('profile.update');
 
-Route::get('/map','GeocoderController@index')->name('map');
-
+//Route::get('/map','GeocoderController@index')->name('map');
+Route::get('/map/{id}','GeocoderController@geocode');
 
 Route::get('/edit_profil/{id}','SortieController@edit_profil');
 

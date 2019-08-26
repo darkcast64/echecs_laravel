@@ -28,6 +28,7 @@ class SortieController extends Controller
         $sortie->description = $request->description;
         $sortie->lieu = $request->lieu;
         $sortie->auteur = $user->name;
+        $sortie->CodePostal=$request->codepostal;
 
 //        Enregistrement dans la BDD
         $sortie->save();
