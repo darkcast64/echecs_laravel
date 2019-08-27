@@ -1,36 +1,46 @@
 @extends('layouts.app')
 <link href="{{asset('css/liste_sorties.css')}}" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<body>
+
+@section('content')
 <h1>map</h1>
+<p id="lieu">{{$sortie->lieu}}</p>
+<p id="cp">{{$sortie->CodePostal}}</p>
+
+<script>
+    var lieu = document.getElementById('lieu').innerHTML;
+    var cp=document.getElementById('cp').innerHTML;
+    console.log(lieu);
+    console.log(cp);
+</script>
+
 
 <script>
 
-    console.log({{$sortie->CodePostal}});
-    $.ajaxSetup({
+        $.ajaxSetup({
 
-        headers: {
+            headers: {
 
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 
-        }
+            }
 
-    });
-    $.ajax({
+        });
+        $.ajax({
 
-        type:'POST',
+            type: 'POST',
 
-        url:'http://dev.virtualearth.net/REST/v1/Locations/FR/{{$sortie->CodePostal}}/{{$sortie->lieu}}/addressLine?includeNeighborhood=0&include=queryParse&maxResults=2&key=Ajy3mGZvajVbnZH_EEdn7YWZn-13faN_cviw7VmtFuhPQB-3e2gvwzHrBmVAtvu4',
+            url: 'http://dev.virtualearth.net/REST/v1/Locations/FR/'+cp+'/'+lieu+'/addressLine?includeNeighborhood=0&include=queryParse&maxResults=2&key=Ajy3mGZvajVbnZH_EEdn7YWZn-13faN_cviw7VmtFuhPQB-3e2gvwzHrBmVAtvu4',
+            crossDomain: true,
+            dataType: 'jsonp',
+            jsonp: "jsonp",
+            headers: {  'Access-Control-Allow-Origin': '*' },
+            success: function (data) {
 
+                // console.log(data[resourceSets][0][resources][0][bbox]);
+                console.log(data.resourceSets[0].resources[0].bbox);
+            }
 
-
-        success:function(data){
-
-            alert(data.success);
-
-        }
-
-    });
+        });
 
 </script>
-</body>
+@endsection
